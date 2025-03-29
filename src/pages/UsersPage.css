@@ -1,0 +1,149 @@
+.users-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    min-height: 100vh;
+  }
+  
+  h2 {
+    font-size: 36px;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  }
+  
+  .users-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .user-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+  
+  .user-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+    border-color: #fda085;
+  }
+  
+  .user-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid #fda085;
+    transition: transform 0.3s ease;
+  }
+  
+  .user-card img:hover {
+    transform: scale(1.1);
+  }
+  
+  .user-card p {
+    font-size: 20px;
+    color: #444;
+    font-weight: 600;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 1rem;
+  }
+  
+  button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .edit-btn {
+    background-color: #4caf50;
+    color: white;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+  }
+  
+  .edit-btn:hover {
+    background-color: #43a047;
+    transform: scale(1.05);
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+    color: white;
+    box-shadow: 0 4px 12px rgba(244, 67, 54, 0.4);
+  }
+  
+  .delete-btn:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 16px;
+  }
+  
+  .pagination button {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #333;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  .pagination button:hover {
+    background-color: #fda085;
+    color: #fff;
+  }
+  
+  .pagination button:disabled {
+    background-color: #ddd;
+    color: #999;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 768px) {
+    .users-container {
+      padding: 1.5rem;
+    }
+  
+    h2 {
+      font-size: 28px;
+    }
+  
+    .user-card {
+      padding: 1rem;
+    }
+  
+    button {
+      padding: 10px 16px;
+      font-size: 14px;
+    }
+  }
+  

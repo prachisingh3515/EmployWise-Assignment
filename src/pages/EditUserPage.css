@@ -1,0 +1,84 @@
+.edit__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+  }
+  
+  .edit__form {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .edit__title {
+    font-size: 28px;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .edit__input {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+  }
+  
+  .edit__input:focus {
+    border-color: #a6c1ee;
+    box-shadow: 0 4px 12px rgba(166, 193, 238, 0.4);
+  }
+  
+  .edit__button {
+    padding: 14px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #a6c1ee;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(166, 193, 238, 0.4);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .edit__button:hover {
+    background-color: #8fa8d9;
+    transform: scale(1.05);
+  }
+  
+  .edit__error {
+    color: #f44336;
+    font-size: 14px;
+    margin-top: -10px;
+    text-align: center;
+  }
+  
+  @media (max-width: 480px) {
+    .edit__form {
+      padding: 1.5rem;
+    }
+  
+    .edit__input, .edit__button {
+      font-size: 16px;
+      padding: 12px;
+    }
+  
+    .edit__title {
+      font-size: 24px;
+    }
+  }
+  
