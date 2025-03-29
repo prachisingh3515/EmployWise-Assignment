@@ -5,17 +5,33 @@ import './UsersPage.css';
 
 const UsersPage = () => {
   const [users, setUsers] = useState([]);
+  const [filteredUsers, setFilteredUsers] = useState([]);
   const [page, setPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchUsers(page);
   }, [page]);
 
+  useEffect(() => {
+    if (searchQuery) {
+      const filtered = users.filter(user =>
+        `${user.first_name} ${user.last_name}`
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase())
+      );
+      setFilteredUsers(filtered);
+    } else {
+      setFilteredUsers(users);
+    }
+  }, [searchQuery, users]);
+
   const fetchUsers = async (page) => {
     try {
       const response = await api.get(`/users?page=${page}`);
       setUsers(response.data.data);
+      setFilteredUsers(response.data.data);
     } catch (err) {
       console.error('Failed to fetch users:', err);
     }
@@ -36,8 +52,18 @@ const UsersPage = () => {
   return (
     <div className="users-container">
       <h2>Users List</h2>
+
+      {/* Search Input */}
+      <input
+        type="text"
+        className="search-input"
+        placeholder="Search by name..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
+
       <div className="users-list">
-        {users.map(user => (
+        {filteredUsers.map(user => (
           <div key={user.id} className="user-card">
             <img src={user.avatar} alt={`${user.first_name} ${user.last_name}`} />
             <p>{user.first_name} {user.last_name}</p>
@@ -56,6 +82,7 @@ const UsersPage = () => {
           </div>
         ))}
       </div>
+
       <div className="pagination">
         <button 
           onClick={() => setPage(page - 1)} 
